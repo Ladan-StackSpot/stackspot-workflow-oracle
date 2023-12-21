@@ -33,6 +33,13 @@ jobs:
           echo "/home/runner/bin" >> $GITHUB_PATH
           exec -l $SHELL
 
+      - name: 'Install StackSpot CLI'
+        run: | 
+          curl -L -O https://stk.stackspot.com/installer/linux/stk.deb
+          sudo dpkg --install stk.deb
+          stk -v
+
+
       - name: 'Fix OCI Config File Permissions'
         run: |
           oci setup repair-file-permissions --file /home/runner/.oci/config
