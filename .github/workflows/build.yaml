@@ -37,6 +37,7 @@ jobs:
         run: | 
           curl -L -O https://stk.stackspot.com/installer/linux/stk.deb
           sudo dpkg --install stk.deb
+          test -f ~/.stk/bin/.bash_profile && . ~/.stk/bin/.bash_profile
           stk -v
 
 
